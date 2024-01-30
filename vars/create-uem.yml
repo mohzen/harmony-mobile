@@ -1,0 +1,37 @@
+---
+create_uem:
+  tag_device_status: "{{tagging}}"
+  tag_device_risk: "{{tagging}}"
+  tag_device_tf: "{{tagging}}"
+  username: "{{username}}"
+  password: "{{password}}"
+  friendly_name: "{{friendly_name}}"
+  server: "{{server}}"
+  aw_tenant_code: "{{aw_tenant_code}}"
+  labels: "{{labels}}"
+  arr_labels:
+    - "{{labels}}"
+  groups:
+    - group_type: "{{group_type}}"
+      id: "{{group_id}}"
+      name: "{{group_name}}"
+  mitigation_profile_name: ""
+  device_sync_interval: "{{ device_sync_interval }}"
+  sweep_threshold: "{{ sweep_threshold }}"
+  sweep_per_syncs: "{{sweep_per_syncs}}"
+  app_sync_delay_interval: "{{ app_sync_delay_interval }}"
+  import_device_phone: "{{ import }}"
+  import_device_email: "{{ import }}"
+  import_device_name: "{{ import }}"
+  import_device_email_groups:
+    - "{{labels}}"
+  import_device_phone_groups:
+    - "{{labels}}"
+  import_device_name_groups:
+    - "{{labels}}"
+  deployment:
+    both:
+      - "{{labels}}"
+  include_dedicated_devices: "{{ include_dedicated_devices }}"
+  unique_key: "{{unique_key}}"
+  discard_add_auto_device: "{{ discard_add_auto_device }}"

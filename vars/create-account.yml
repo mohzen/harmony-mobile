@@ -1,0 +1,20 @@
+---
+create_account:
+  parentId: "{{tenantID}}"
+  termsApproved: "{{terms_approved}}"
+  admin:
+    email: "{{email}}"
+    name: "{{name}}"
+    firstName: "{{first_name}}"
+    lastName: "{{last_name}}"
+    phone: "{{phone}}"
+    role: "{{role}}"
+  name: "{{account_name}}"
+  type: "{{account_type}}"
+  country: "{{account_country}}"
+  industry: "{{account_industry}}"
+  businessSize:
+    - "{{account_businessSize_lower}}"
+    - "{{account_businessSize_higher}}"
+  hasMFA: "{{account_2FA}}"
+  child: true

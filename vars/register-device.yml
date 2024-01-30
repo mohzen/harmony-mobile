@@ -1,0 +1,9 @@
+---
+enrollment_device_registration:
+  LocationGroupId: "{{ws1_organization_id}}"
+  FriendlyName: "{{friendly_device_name}}"
+  Ownership: "{{ownership}}"
+  PlatformId: "{{platform_id}}"
+  ModelId: "{{model_id}}"
+  OperatingSystemId: "{{operating_system_id}}"
+  ToPhoneNumber: "+{{new_mobile_number}}"

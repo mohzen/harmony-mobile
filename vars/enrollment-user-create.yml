@@ -1,0 +1,13 @@
+---
+enrollment_user_creation:
+  UserName: "{{new_username}}"
+  Password: "{{new_password}}"
+  FirstName: "{{new_firstname}}"
+  LastName: "{{new_lastname}}"
+  Email: "{{new_email}}"
+  SecurityType: "{{security_type}}"
+  DisplayName: "{{new_display_name}}"
+  MobileNumber: "{{new_mobile_number}}"
+  LocationGroupId: "{{ws1_organization_id}}"
+  OrganizationGroupUuid: "{{ws1_organization_uuid}}"
+  Role: "{{new_role}}"

@@ -1,0 +1,71 @@
+---
+# section x-token
+email: "mohan@team-it.com.au"
+token_password: "3Soft449@mel"
+name: "Mohan Kumar"
+first_name: "Mohan"
+last_name: "Kumar"
+phone: "+61 401 183 418"
+role: "admin"
+
+# Tenant ID
+tenantID: "1ef2a08e-3789-4e83-b605-c812ab2da115" #Team IT
+
+#ws1
+username: "checkpoint_admin"
+password: "UXaZM1kw38dZWVMLe6BJ"
+friendly_name: "Workspace ONE HM-test"
+server: "https://cn2108.awmdm.com/"
+aw_tenant_code: "M3Q9JjiwC7nVQGvdk8pMk8xQflHnEAbGCpd2G6KNlow="
+tagging: false
+labels: "CheckPoint"
+group_type: "organization_group"
+group_id: 788
+group_name: "CheckPoint"
+device_sync_interval: 30
+sweep_threshold: 10
+sweep_per_syncs: 3
+app_sync_delay_interval: 10
+import: true
+include_dedicated_devices: false
+unique_key: "40e2"
+discard_add_auto_device: false
+
+ws1_application_version: "application/json;version=2"
+ws1_authorization: "Y2hlY2twb2ludF9hZG1pbjpVWGFaTTFrdzM4ZFpXVk1MZTZCSg=="
+ws1_organization_name: "CheckPoint"
+organization_name: "CheckPoint1"
+organization_group_id: "CheckPoint1"
+organization_location_group_type: "Container"
+organization_country: "Australia"
+locale: "English (United States)"
+
+new_username: "dc_cust"
+new_password: "Melbourne@"
+new_firstname: "DC"
+new_lastname: "Melb"
+new_email: "mohzen@gmail.com"
+security_type: "2"
+new_display_name: "DC"
+new_mobile_number: "+61401183418"
+new_role: "Full Access"
+ownership: "E"
+platform_id: 2
+model_id: 3
+operating_system_id: 4
+
+#account creation
+terms_approved: true
+account_name: "anusha"
+account_type: "CUSTOMER"
+account_country: "India"
+account_industry: "Insurance / Legal"
+account_businessSize_lower: 1
+account_businessSize_higher: 10
+account_2FA: false
+
+#tagging license to customer
+user_center_email: "ash@team-it.com.au"
+user_center_password: "@Cancer2023@"
+get_accounts_sync: false
+user_center_license_name: "Central Melbourne Institute"

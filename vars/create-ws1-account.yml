@@ -1,0 +1,7 @@
+---
+create_ws1_account:
+  Name: "{{organization_name}}"
+  GroupId: "{{organization_group_id}}"
+  LocationGroupType: "{{organization_location_group_type}}"
+  Country: "{{organization_country}}"
+  Locale: "{{locale}}"

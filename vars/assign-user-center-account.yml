@@ -1,0 +1,4 @@
+---
+assign_user_center_account:
+  accounts:
+    - "{{account_json}}"

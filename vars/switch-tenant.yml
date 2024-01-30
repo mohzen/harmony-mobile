@@ -1,0 +1,3 @@
+---
+switch_tenant:
+  tenantId: "{{account_id}}"

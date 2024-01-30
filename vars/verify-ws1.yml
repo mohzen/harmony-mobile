@@ -1,0 +1,8 @@
+---
+verify_ws1:
+  username: "{{username }}"
+  password: "{{password }}"
+  friendly_name: "{{friendly_name}}"
+  server: "{{server}}"
+  aw_tenant_code: "{{aw_tenant_code}}"
+  labels: "{{labels}}"

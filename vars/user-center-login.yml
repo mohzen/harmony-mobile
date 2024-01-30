@@ -1,0 +1,5 @@
+---
+user_center_login:
+  email: "{{user_center_email}}"
+  password: "{{user_center_password}}"
+  isGetAccountsSync: "{{get_accounts_sync}}"
