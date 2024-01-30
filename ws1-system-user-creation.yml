@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+    - vars/create-ws1-account.yml
+
+  tasks:
+    - name: List ws1 accounts
+      import_tasks: tasks/list-ws1-accounts.yml
+
+    - name: create ws1 system user
+      import_tasks: tasks/create-ws1-account.yml

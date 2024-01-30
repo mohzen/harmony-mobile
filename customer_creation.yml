@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+    - vars/token.yml
+    - vars/create-account.yml
+
+  tasks:
+    - name: Get token task
+      import_tasks: tasks/token.yml
+
+    - name: Create account
+      import_tasks: tasks/create-account.yml

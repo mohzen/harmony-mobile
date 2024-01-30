@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+    - vars/enrollment-user-create.yml
+    - vars/register-device.yml
+
+  tasks:
+    - name: List ws1 accounts
+      import_tasks: tasks/list-ws1-accounts.yml
+
+    - name: new enrollment user creation
+      import_tasks: tasks/enrollment-user-creation.yml
+
+    - name: register new device
+      import_tasks: tasks/enrollment-device-registration.yml

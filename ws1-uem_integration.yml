@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+    - vars/token.yml
+    - vars/verify-ws1.yml
+    - vars/create-uem.yml
+
+  tasks:
+    - name: Get token task
+      import_tasks: tasks/token.yml
+
+    - name: verify server credentials
+      import_tasks: tasks/verify-ws1.yml
+
+    - name: Create uem
+      import_tasks: tasks/create-uem.yml
