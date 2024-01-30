@@ -1,0 +1,15 @@
+---
+
+- name: Make HTTP POST request with cookie to get list of user center accounts
+  uri:
+    url: "https://as2108.awmdm.com/API/system/users/{{ws1_enrollment_user_id}}/registerdevice"
+    method: POST
+    headers:
+      Accept: "application/json;version=1"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    body_format: json
+    body: "{{ enrollment_device_registration | to_json }}"
+    return_content: true
+  register: enrollment_device_registration_response
+  failed_when: enrollment_device_registration_response.status != 200 and enrollment_device_registration_response.status != 201

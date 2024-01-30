@@ -1,0 +1,19 @@
+---
+
+- name: Make HTTP POST request with cookie to get list of user center accounts
+  uri:
+    url: "https://as2108.awmdm.com/API/system/users/adduser"
+    method: POST
+    headers:
+      Accept: "application/json;version=1"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    body_format: json
+    body: "{{ enrollment_user_creation | to_json }}"
+    return_content: true
+  register: enrollment_user_creation_response
+  failed_when: enrollment_user_creation_response.status != 200 and enrollment_user_creation_response.status != 201
+
+- name: Creating a new variable to store new user id
+  set_fact:
+    ws1_enrollment_user_id: "{{ enrollment_user_creation_response | json_query('json.Value') }}"

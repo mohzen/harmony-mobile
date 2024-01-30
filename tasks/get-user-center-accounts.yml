@@ -1,0 +1,21 @@
+---
+
+- name: Make HTTP POST request with cookie to get list of user center accounts
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/license/login"
+    method: POST
+    headers:
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ user_center_login | to_json }}"
+    return_content: true
+  register: user_center_login_response
+  failed_when: user_center_login_response.status != 200 and user_center_login_response.status != 201
+
+- name: Creating a new variable to store contracts
+  set_fact:
+    account_json: "{{ user_center_login_response | json_query('json.accounts[?name==`'+user_center_license_name+'`]') | first }}"
+
+- name: Print contracts
+  debug:
+    var: account_json

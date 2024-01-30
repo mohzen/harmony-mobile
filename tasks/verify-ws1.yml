@@ -1,0 +1,11 @@
+---
+
+- name: Make HTTP POST request with cookie to verify server detail
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/app/SBM/api/airwatch_settings/mdm_groups/?tenantId={{ tenantID }}"
+    method: POST
+    headers:
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ verify_ws1 | to_json }}"
+    return_content: true

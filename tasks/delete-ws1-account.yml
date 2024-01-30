@@ -1,0 +1,30 @@
+---
+
+- name: Make HTTP POST request with auth to Create system account
+  uri:
+    url: "https://cn2108.awmdm.com/api/system/groups/{{ws1_organization_id}}"
+    method: DELETE
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    body_format: json
+    body: "{{ create_ws1_account | to_json }}"
+    return_content: true
+  register: ws1_create_account_response
+  failed_when: ws1_create_account_response.status != 200 and ws1_create_account_response.status != 201
+
+- name: Print response
+  debug:
+    var: ws1_create_account_response
+
+- name: Creating a new variable to store Organization id
+  set_fact:
+    ws1_organization_id: "{{ ws1_create_account_response | json_query('json.Id')}}"
+    ws1_organization_uuid: "{{ ws1_create_account_response | json_query('json.Uuid')}}"
+
+- name: Print newly created accountId
+  debug:
+    var:
+      - ws1_organization_id
+      - ws1_organization_uuid

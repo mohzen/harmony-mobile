@@ -1,0 +1,19 @@
+---
+
+- name: Make HTTP POST Request to get Token
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/auth/user"
+    method: POST
+    headers:
+      Content-Type: "application/json"
+    body_format: json
+    body: "{{ payload | to_json }}"
+  register: http_result
+
+- name: Creating a new variable to store cookie
+  set_fact:
+    cookie_string: "{{http_result.set_cookie}}"
+
+- name: Print Token
+  debug:
+    var: cookie_string

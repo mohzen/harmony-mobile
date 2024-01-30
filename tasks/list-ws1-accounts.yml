@@ -1,0 +1,26 @@
+---
+
+- name: Make HTTP GET request with auth to list system accounts
+  uri:
+    url: "https://cn2108.awmdm.com/api/system/groups/search/"
+    method: GET
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    return_content: true
+  register: ws1_list_account_response
+  failed_when: ws1_list_account_response.status != 200 and ws1_list_account_response.status != 201
+
+- name: Print response
+  debug:
+    var: ws1_list_account_response
+
+- name: Creating a new variable to store Organization id
+  set_fact:
+    ws1_organization_id: "{{ ws1_list_account_response | json_query('json.OrganizationGroups[?Name== `' + ws1_organization_name + '`].Id') | first }}"
+    ws1_organization_uuid: "{{ ws1_list_account_response | json_query('json.OrganizationGroups[?Name== `' + ws1_organization_name + '`].Uuid') | first }}"
+
+- name: Print accountId
+  debug:
+    var: ws1_parent_organization_id

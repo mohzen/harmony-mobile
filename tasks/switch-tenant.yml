@@ -1,0 +1,20 @@
+---
+
+- name: Make HTTP PUT Request to switch tenant account
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/auth/updateUserActiveTenant"
+    method: PUT
+    headers:
+      Content-Type: "application/json"
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ switch_tenant | to_json }}"
+  register: switch_tenant_response
+
+- name: Creating a new variable to store cookie
+  set_fact:
+    cookie_string: "{{switch_tenant_response.set_cookie}}"
+
+- name: Print Token
+  debug:
+    var: cookie_string
