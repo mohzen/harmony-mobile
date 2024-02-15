@@ -12,6 +12,10 @@
   register: user_center_login_response
   failed_when: user_center_login_response.status != 200 and user_center_login_response.status != 201
 
+- name: Print User center
+  debug:
+    var: user_center_login_response
+
 - name: Creating a new variable to store contracts
   set_fact:
     account_json: "{{ user_center_login_response | json_query('json.accounts[?name==`'+user_center_license_name+'`]') | first }}"
