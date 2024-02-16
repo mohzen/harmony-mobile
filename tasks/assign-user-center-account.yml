@@ -1,6 +1,6 @@
 ---
 
-- name: Make HTTP POST request with cookie to create account
+- name: Make HTTP POST request with cookie to assign license to tenant
   uri:
     url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/license/account/activate"
     method: POST

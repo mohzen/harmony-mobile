@@ -69,3 +69,8 @@ user_center_email: "ash@team-it.com.au"
 user_center_password: "@Cancer2023@"
 get_accounts_sync: false
 user_center_license_name: "Central Melbourne Institute"
+endpoint_contract_name: "CP-HAR-EP-BASIC-LICENSE-1Y"
+mobile_contract_name: "CP-HAR-MOBILE-DVC-1Y-CONTRACT"
+endpoint_product_id: "07ac60fb-577b-44f5-89e6-61aa666a31a1"
+mobile_product_id: "b28a05c6-54cf-4d6d-bc67-a18d2ed39763"
+

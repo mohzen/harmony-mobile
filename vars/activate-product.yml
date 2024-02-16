@@ -1,0 +1,8 @@
+---
+activate_endpoint_product:
+  productId: "{{endpoint_product_id}}"
+  appId: "{{endpoint_app_id}}"
+
+activate_mobile_product:
+  productId: "{{mobile_product_id}}"
+  appId: "{{mobile_app_id}}"

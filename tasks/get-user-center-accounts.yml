@@ -23,3 +23,16 @@
 - name: Print contracts
   debug:
     var: account_json
+
+- name: Creating a new variable to store endpoint_app_id
+  set_fact:
+    endpoint_app_id: "{{ account_json | json_query('contracts[?sku==`'+endpoint_contract_name+'`].appId') | first | first}}"
+    mobile_app_id: "{{ account_json | json_query('contracts[?sku==`'+mobile_contract_name+'`].appId') | first | first}}"
+
+- name: Print endpoint app ids
+  debug:
+    var: endpoint_app_id
+
+- name: Print mobile app ids
+  debug:
+    var: mobile_app_id

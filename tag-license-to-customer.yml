@@ -8,6 +8,7 @@
     - vars/switch-tenant.yml
     - vars/assign-user-center-account.yml
     - vars/user-center-login.yml
+    - vars/activate-product.yml
 
   tasks:
     - name: Get token task
@@ -24,3 +25,6 @@
 
     - name: assign contract to customer account
       import_tasks: tasks/assign-user-center-account.yml
+
+    - name: activate products
+      import_tasks: tasks/activate-products.yml

@@ -1,0 +1,43 @@
+---
+
+#- name: Make HTTP GET request with cookie to get list of license account
+#  uri:
+#    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/license"
+#    method: GET
+#    headers:
+#      cookie: "{{ cookie_string }}"
+#    body_format: json
+#    return_content: true
+#  register: user_center_license_response
+#  failed_when: user_center_license_response.status != 200 and user_center_license_response.status != 201
+#
+#- name: Creating a new variable to store productId
+#  set_fact:
+#    license_json: "{{ user_center_license_response | json_query('json.rows[?name==`'+user_center_license_name+'`]') | first }}"
+#    endpoint_product_id: "{{ user_center_license_response | json_query('json.licenses[?sku== `'+endpoint_contract_name+'`].productId') | first }}"
+#    mobile_product_id: "{{ user_center_license_response | json_query('json.licenses[?sku== `'+mobile_contract_name+'`].productId') | first }}"
+
+- name: Print contracts
+  debug:
+    var:
+#      - account_json
+      - endpoint_product_id
+      - mobile_product_id
+
+- name: Make HTTP GET request with cookie to activate endpoint product
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/registration"
+    method: POST
+    headers:
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ activate_endpoint_product | to_json }}"
+
+- name: Make HTTP GET request with cookie to activate mobile product
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/registration"
+    method: POST
+    headers:
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ activate_mobile_product | to_json }}"
