@@ -1,0 +1,8 @@
+---
+
+- name: Make HTTP GET request with cookie to delete tenant
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant?id={{account_id}}"
+    method: DELETE
+    headers:
+      cookie: "{{ cookie_string }}"
