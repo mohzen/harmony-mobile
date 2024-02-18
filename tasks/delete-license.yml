@@ -1,0 +1,26 @@
+---
+
+- name: Make HTTP GET request with cookie to get list of license account
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/license"
+    method: GET
+    headers:
+      cookie: "{{ cookie_string }}"
+    return_content: true
+  register: user_center_license_response
+  failed_when: user_center_license_response.status != 200 and user_center_license_response.status != 201
+
+- name: Creating a new variable to store productId
+  set_fact:
+    license_json: "{{ user_center_license_response | json_query('json.rows[?name==`'+user_center_license_name+'`]') | first }}"
+
+- name: Creating a new variable to store productId
+  set_fact:
+    license_account_id: "{{license_json.id}}"
+
+- name: Make HTTP GET request with cookie to delete license
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v1/tenant/license/account?accountId={{license_account_id}}"
+    method: DELETE
+    headers:
+      cookie: "{{ cookie_string }}"
