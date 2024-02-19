@@ -16,7 +16,7 @@
 
 - name: Creating a new variable to store list of products
   set_fact:
-    license_products: "{{ license_json.licenses | | map(attribute='sku') | list }}"
+    license_products: "{{ license_json.licenses | map(attribute='sku') | list }}"
 
 - name: Print licenses
   debug:
