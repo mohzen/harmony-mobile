@@ -21,4 +21,4 @@
       import_tasks: tasks/switch-tenant.yml
 
     - name: activate products
-      import_tasks: tasks/activate-products.yml
+      import_tasks: tasks/list-license-products.yml
