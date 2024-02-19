@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+    - vars/token.yml
+    - vars/switch-tenant.yml
+    - vars/assign-user-center-account.yml
+    - vars/user-center-login.yml
+    - vars/activate-product.yml
+
+  tasks:
+    - name: Get token task
+      import_tasks: tasks/token.yml
+
+    - name: get account tenant ids
+      import_tasks: tasks/get-tenants.yml
+
+    - name: switch account
+      import_tasks: tasks/switch-tenant.yml
+
+    - name: activate products
+      import_tasks: tasks/activate-products.yml
