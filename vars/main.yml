@@ -18,7 +18,7 @@ friendly_name: "Workspace ONE HM-test"
 server: "https://cn2108.awmdm.com/"
 aw_tenant_code: "N1cbJl7ChlNC1PxMfY8brlOTl5ghEuEO+7rZ+Fub3X0="
 tagging: false
-labels: "CheckPoint"
+labels: "Harmony Mobile"
 group_type: "organization_group"
 group_id: 958
 group_name: "Harmony Mobile"
