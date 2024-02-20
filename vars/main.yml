@@ -20,8 +20,8 @@ aw_tenant_code: "N1cbJl7ChlNC1PxMfY8brlOTl5ghEuEO+7rZ+Fub3X0="
 tagging: false
 labels: "CheckPoint"
 group_type: "organization_group"
-group_id: 788
-group_name: "CheckPoint"
+group_id: 958
+group_name: "Harmony Mobile"
 device_sync_interval: 30
 sweep_threshold: 10
 sweep_per_syncs: 3
