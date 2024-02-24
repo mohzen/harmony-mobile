@@ -23,4 +23,4 @@
 
 - name: Print accountId
   debug:
-    var: ws1_parent_organization_id
+    var: ws1_organization_id
