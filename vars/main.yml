@@ -32,6 +32,7 @@ unique_key: "40e2"
 discard_add_auto_device: false
 
 ws1_application_version: "application/json;version=2"
+ws1_application_version_1: "application/json;version=1"
 ws1_authorization: "Y2hlY2twb2ludF9hZG06VVhhWk0xa3czOGRaV1ZNTGU2Qko="
 ws1_organization_name: "Harmony Mobile"
 organization_name: "Harmony Mobile"

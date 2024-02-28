@@ -5,7 +5,7 @@
     url: "https://as2108.awmdm.com/API/mdm/smartgroups/search"
     method: GET
     headers:
-      Accept: "{{ ws1_application_version }}"
+      Accept: "{{ ws1_application_version_1 }}"
       Authorization: "Basic {{ ws1_authorization }}"
       aw-tenant-code: "{{ aw_tenant_code }}"
     return_content: true
