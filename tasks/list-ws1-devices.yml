@@ -18,7 +18,7 @@
 
 - name: Creating a new variable to store devices id
   set_fact:
-    ws1_device_Udid: "{{ ws1_list_devices_response | json_query('json.Devices[?SerialNumber== `' + ws1_device_name + '`].Udid') | first }}"
+    ws1_device_Udid: "{{ ws1_list_devices_response | json_query('json.Devices[?SerialNumber== `' + ws1_device_serial_number + '`].Udid') | first }}"
 
 - name: Print ws1_smart_group_id
   debug:

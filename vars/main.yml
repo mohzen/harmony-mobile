@@ -89,4 +89,5 @@ vpn_password: "cancer76"
 vpn_proxy: "Automatic"
 vpn_identity_certificate: "None"
 vpn_identifier: "com.checkpoint.capsuleprotect"
+ws1_device_serial_number: "H752M0MXRM"
 
