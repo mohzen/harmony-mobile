@@ -1,0 +1,13 @@
+---
+
+- name: Make HTTP POST request with cookie to assign license to tenant
+  uri:
+    url: "https://as2108.awmdm.com/API/system/users/{{ws1_user_id}}/deactivate"
+    method: POST
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    return_content: true
+  register: activate_user_account_response
+  failed_when: activate_user_account_response.status != 200 and activate_user_account_response.status != 201

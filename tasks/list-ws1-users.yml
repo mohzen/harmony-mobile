@@ -1,0 +1,25 @@
+---
+
+- name: Make HTTP GET request with auth to list system accounts
+  uri:
+    url: "https://as2108.awmdm.com/API/system/users/search"
+    method: GET
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    return_content: true
+  register: ws1_list_users_response
+  failed_when: ws1_list_users_response.status != 200 and ws1_list_users_response.status != 201
+
+- name: Print response
+  debug:
+    var: ws1_list_users_response
+
+- name: Creating a new variable to store user id
+  set_fact:
+    ws1_user_id: "{{ ws1_list_users_response | json_query('json.Users[?Email== `' + ws1_user_email + '`].Id.Value') | first }}"
+
+- name: Print accountId
+  debug:
+    var: ws1_user_id
