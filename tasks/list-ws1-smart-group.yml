@@ -1,0 +1,25 @@
+---
+
+- name: Make HTTP GET request with auth to list system accounts
+  uri:
+    url: "https://as2108.awmdm.com/API/mdm/smartgroups/search"
+    method: GET
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    return_content: true
+  register: ws1_list_smart_group_response
+  failed_when: ws1_list_smart_group_response.status != 200 and ws1_list_smart_group_response.status != 201
+
+- name: Print response
+  debug:
+    var: ws1_list_smart_group_response
+
+- name: Creating a new variable to store Organization id
+  set_fact:
+    ws1_smart_group_id: "{{ ws1_list_smart_group_response | json_query('json.SmartGroups[?Name== `' + ws1_smart_group_name + '`].SmartGroupID') | first }}"
+
+- name: Print ws1_smart_group_id
+  debug:
+    var: ws1_smart_group_id

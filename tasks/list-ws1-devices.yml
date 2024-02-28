@@ -1,0 +1,25 @@
+---
+
+- name: Make HTTP GET request with auth to list system accounts
+  uri:
+    url: "https://as2108.awmdm.com/api/mdm/devices/search/"
+    method: GET
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    return_content: true
+  register: ws1_list_devices_response
+  failed_when: ws1_list_devices_response.status != 200 and ws1_list_devices_response.status != 201
+
+- name: Print response
+  debug:
+    var: ws1_list_devices_response
+
+- name: Creating a new variable to store devices id
+  set_fact:
+    ws1_device_Udid: "{{ ws1_list_devices_response | json_query('json.Devices[?SerialNumber== `' + ws1_device_name + '`].Udid') | first }}"
+
+- name: Print ws1_smart_group_id
+  debug:
+    var: ws1_device_Udid

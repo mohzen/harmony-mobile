@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: List ws1 accounts
+      import_tasks: tasks/list-ws1-accounts.yml
+
+    - name: List ws1 smart group
+      import_tasks: tasks/list-ws1-smart-group.yml
+
+    - name: List ws1 devices
+      import_tasks: tasks/list-ws1-devices.yml
+
+    - name: create vpn tunnel
+      import_tasks: tasks/create-vpn-tunnel.yml

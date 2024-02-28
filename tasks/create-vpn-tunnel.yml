@@ -1,0 +1,15 @@
+---
+
+- name: Make HTTP POST request with cookie to create account
+  uri:
+    url: "https://as2108.awmdm.com/API/mdm/profiles/platforms/apple/create"
+    method: POST
+    headers:
+      Accept: "{{ ws1_application_version }}"
+      Authorization: "Basic {{ ws1_authorization }}"
+      aw-tenant-code: "{{ aw_tenant_code }}"
+    body_format: json
+    body: "{{ create_vpn_tunnel | to_json }}"
+    return_content: true
+  register: ti
+  failed_when: ti.status != 200 and ti.status != 201

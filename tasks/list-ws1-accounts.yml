@@ -20,6 +20,7 @@
   set_fact:
     ws1_organization_id: "{{ ws1_list_account_response | json_query('json.OrganizationGroups[?Name== `' + ws1_organization_name + '`].Id') | first }}"
     ws1_organization_uuid: "{{ ws1_list_account_response | json_query('json.OrganizationGroups[?Name== `' + ws1_organization_name + '`].Uuid') | first }}"
+    ws1_organization_group_id: "{{ ws1_list_account_response | json_query('json.OrganizationGroups[?Name== `' + ws1_organization_name + '`].GroupId') | first  }}"
 
 - name: Print accountId
   debug:

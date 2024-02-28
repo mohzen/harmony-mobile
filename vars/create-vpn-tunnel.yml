@@ -1,0 +1,25 @@
+---
+create_vpn_tunnel:
+  General:
+    Name: "{{vpn_name}}"
+    Description: "{{vpn_description}}"
+    AssignmentType: "{{vpn_assignmentType}}"
+    ManagedLocationGroupID: "{{ws1_organization_group_id}}"
+    ProfileContext: "{{vpn_profile_context}}"
+    AssignedSmartGroups:
+      - SmartGroupId: "{{ws1_smart_group_id}}"
+        Name: "{{ws1_smart_group_name}}"
+  VpnList:
+    - ConnectionName: "{{vpn_connection_name}}"
+      ConnectionType: "{{vpn_connection_type}}"
+      CommunicationServer: "{{vpn_communication_server}}"
+      Account: "{{ws1_device_Udid}}"
+      VpnUserAuthentication: "{{vpn_user_authentication}}"
+      VpnPassword: "{{vpn_password}}"
+      Proxy: "{{vpn_proxy}}"
+      EnableVPNOnDemand: true
+      IdentityCertificate: "{{vpn_identity_certificate}}"
+      Identifier: "{{vpn_identifier}}"
+      CustomData:
+        - Key: "zero_touch"
+          Value: "true"

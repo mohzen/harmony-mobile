@@ -74,3 +74,18 @@ mobile_contract_name: "CP-HAR-MOBILE-DVC-1Y-CONTRACT"
 endpoint_product_id: "07ac60fb-577b-44f5-89e6-61aa666a31a1"
 mobile_product_id: "b28a05c6-54cf-4d6d-bc67-a18d2ed39763"
 
+#vpn tunnel
+ws1_smart_group_name: "All Devices"
+vpn_name: "Prof103"
+vpn_description: "Prof103"
+vpn_assignmentType: 1
+vpn_profile_context: 2
+vpn_connection_name: "Check Point Local Tunnel"
+vpn_connection_type: "Custom"
+vpn_communication_server: "www.checkpoint.com"
+vpn_user_authentication: "Password"
+vpn_password: "cancer76"
+vpn_proxy: "Automatic"
+vpn_identity_certificate: "None"
+vpn_identifier: "com.checkpoint.capsuleprotect"
+
