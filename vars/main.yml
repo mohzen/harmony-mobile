@@ -64,6 +64,7 @@ account_industry: "Insurance / Legal"
 account_businessSize_lower: 1
 account_businessSize_higher: 10
 account_2FA: false
+master_account_name: "TeamInfinity"
 
 #tagging license to customer
 user_center_email: "ash@team-it.com.au"

@@ -11,5 +11,11 @@
     - name: Get token task
       import_tasks: tasks/token.yml
 
+    - name: get account tenant ids
+      import_tasks: tasks/get-master-account-id.yml
+
+    - name: switch account
+      import_tasks: tasks/switch-tenant.yml
+
     - name: Create account
       import_tasks: tasks/create-account.yml
