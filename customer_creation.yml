@@ -6,6 +6,7 @@
     - vars/main.yml
     - vars/token.yml
     - vars/create-account.yml
+    - vars/switch-tenant.yml
 
   tasks:
     - name: Get token task
