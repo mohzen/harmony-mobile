@@ -1,0 +1,7 @@
+---
+create_device:
+  name: "{{device_name}}"
+  email: "{{device_user_email}}"
+  number: "{{device_user_phone_number}}"
+  groups:
+    - "ALL"

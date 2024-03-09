@@ -1,0 +1,13 @@
+---
+
+- name: Make HTTP POST request with cookie to create account
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/app/SBM/api/device/"
+    method: POST
+    headers:
+      cookie: "{{ cookie_string }}"
+    body_format: json
+    body: "{{ create_device | to_json }}"
+    return_content: true
+  register: ti
+  failed_when: ti.status != 200 and ti.status != 201
