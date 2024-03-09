@@ -1,6 +1,6 @@
 ---
 create_account:
-  parentId: "{{tenantID}}"
+  parentId: "{{account_id}}"
   termsApproved: "{{terms_approved}}"
   admin:
     email: "{{email}}"
