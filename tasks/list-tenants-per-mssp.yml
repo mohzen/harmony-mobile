@@ -16,7 +16,7 @@
 
 - name: Creating a new variable to store tenant variables
   set_fact:
-    tenant_names: "{{ tenants_response.json.tenants | map(attribute='name') | list }}"
+    tenant_names: "{{ tenants_response.json.rows | map(attribute='name') | list }}"
 
 - name: Print response
   debug:
