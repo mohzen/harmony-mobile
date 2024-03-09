@@ -18,4 +18,4 @@
       import_tasks: tasks/switch-tenant.yml
 
     - name: get account tenant ids
-      import_tasks: tasks/list-tenants.yml
+      import_tasks: tasks/list-tenants-per-mssp.yml
