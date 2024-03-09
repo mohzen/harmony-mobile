@@ -1,0 +1,23 @@
+---
+
+- name: Make HTTP GET request with cookie to get list of tenants this user has access
+  uri:
+    url: "https://cloudinfra-gw.portal.checkpoint.com/api/v2/tenant/all"
+    method: GET
+    headers:
+      cookie: "{{ cookie_string }}"
+    return_content: true
+  register: tenants_response
+  failed_when: tenants_response.status != 200 and tenants_response.status != 201
+
+- name: Print response
+  debug:
+    var: tenants_response
+
+- name: Creating a new variable to store tenant variables
+  set_fact:
+    tenant_names: "{{ tenants_response.json.tenants | map(attribute='name') | list }}"
+
+- name: Print response
+  debug:
+    var: tenant_names
