@@ -1,0 +1,23 @@
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - set_fact:
+        vlan_object:
+          name: foo
+          target: bar
+
+    - set_fact:
+        vlan_name: "{{ vlan_object.name }}"
+        vlan_target: "{{ vlan_object.target }}"
+      run_once: true
+
+    - add_host:
+        name: "{{ vlan_target }}"
+
+- hosts: "{{ hostvars.localhost.vlan_target }}"
+  gather_facts: no
+
+  tasks:
+    - debug:
+        var: ansible_play_hosts

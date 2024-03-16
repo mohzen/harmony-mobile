@@ -1,0 +1,6 @@
+- hosts: bar
+  gather_facts: no
+
+  tasks:
+    - debug:
+        var: ansible_play_hosts
